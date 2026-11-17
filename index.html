@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Lotus Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--b1:#e9eddc;--b2:#c5d3bd;--cd:rgba(250,244,230,.9);--ink:#3b3a30;--mu:#7a6f5c;--pk:#c98ea0;--sg:#8aa58a;--dg:#3f5e4d;--lv:#b9a7cf;--ln:rgba(120,100,70,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:#223329;--b2:#16241d;--cd:rgba(38,48,40,.92);--ink:#efe6d2;--mu:#b8ae98;--ln:rgba(220,200,160,.25)}}
+:root[data-theme="dark"]{--b1:#223329;--b2:#16241d;--cd:rgba(38,48,40,.92);--ink:#efe6d2;--mu:#b8ae98;--ln:rgba(220,200,160,.25)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(var(--b1),var(--b2)) fixed;color:var(--ink);font:17px/1.55 "Cormorant Garamond",Georgia,serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.55;pointer-events:none}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.pa{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:#f3e3b0;opacity:.5;animation:up 16s linear infinite}
+@keyframes up{to{transform:translateY(-105vh) translateX(20px);opacity:0}}
+.fp{position:absolute;top:-20px;width:12px;height:18px;border-radius:60% 0 60% 0;background:var(--pk);opacity:.8;animation:fl 9s ease-in forwards}
+@keyframes fl{to{transform:translate(60px,105vh) rotate(300deg);opacity:0}}
+.rp{fill:none;stroke:#e9f0e0;stroke-width:1;animation:rp 6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes rp{0%{transform:scale(.4);opacity:.7}100%{transform:scale(1.4);opacity:0}}
+.pt{transition:transform 2.4s ease;transform-origin:0 0}
+.df{animation:bob 5s ease-in-out infinite alternate}@keyframes bob{to{transform:translateY(-8px)}}
+.wrap{position:relative;z-index:2;max-width:640px;margin:0 auto;padding:14px 14px 40px}
+h1{font-size:30px;margin:6px 0 0;text-align:center;font-weight:600;color:var(--dg)}
+@media(prefers-color-scheme:dark){h1{color:#cfe0c8}}
+.sub{text-align:center;color:var(--mu);font-style:italic;font-size:14px;margin-bottom:10px}
+nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:8px 0}
+button,select{font:inherit;font-size:15px;border:1px solid var(--ln);background:var(--cd);color:var(--ink);padding:7px 13px;border-radius:20px;cursor:pointer}
+button:hover{border-color:var(--pk)}button.on,button.pr{background:var(--pk);color:#fff;border-color:var(--pk)}
+.card{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 4px 18px rgba(40,60,40,.12)}
+.card h2{margin:2px 0 6px;font-size:25px;line-height:1.15}.card h3{margin:0 0 4px}
+small,.mu{color:var(--mu);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+#pond svg{width:100%;height:auto;display:block;border-radius:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.grid .card{margin:0;text-align:center;padding:10px}
+.sw{display:inline-block;width:22px;height:22px;border-radius:50%;border:1px solid var(--ln);margin-right:4px;vertical-align:middle}
+textarea{width:100%;font:inherit;background:transparent;color:var(--ink);border:1px solid var(--ln);border-radius:10px;padding:8px;min-height:60px}
+img.ph{width:100%;border-radius:12px;margin:8px 0}
+#ov{position:fixed;inset:0;background:rgba(30,45,35,.55);z-index:9;display:flex;align-items:center;justify-content:center;padding:20px}
+#ov .card{max-width:340px;text-align:center}
+.t{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--dg);color:#fff;padding:8px 16px;border-radius:20px;z-index:10;font-size:15px}
+</style></head><body>
+<svg id="bg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g fill="#6f9470"><ellipse cx="60" cy="130" rx="46" ry="14"/><ellipse cx="340" cy="260" rx="52" ry="15"/><ellipse cx="90" cy="470" rx="58" ry="16"/><ellipse cx="320" cy="640" rx="50" ry="14"/><ellipse cx="200" cy="760" rx="60" ry="15"/></g>
+<g fill="none" stroke="#e9f0e0"><ellipse class="rp" cx="200" cy="320" rx="60" ry="14"/><ellipse class="rp" cx="110" cy="600" rx="50" ry="12" style="animation-delay:2s"/></g>
+<g transform="translate(78,112)"><ellipse cx="0" cy="0" rx="9" ry="6" fill="#7aa05c"/><circle cx="-4" cy="-6" r="3" fill="#7aa05c"/><circle cx="4" cy="-6" r="3" fill="#7aa05c"/></g>
+<g transform="translate(330,420)"><path d="M0 0v60" stroke="#5f7a4a" stroke-width="3"/><ellipse cx="0" cy="-4" rx="14" ry="9" fill="#8a8a4a"/><g fill="#4a4a2a"><circle cx="-5" cy="-5" r="2"/><circle cx="1" cy="-7" r="2"/><circle cx="6" cy="-4" r="2"/></g></g>
+<path class="df" d="M250 180l14-5M250 180l14 5M250 180l-14-5M250 180l-14 5M250 180h-12" stroke="#b9a7cf" stroke-width="2"/></svg>
+<div id="fx"></div>
+<div class="wrap"><h1>The Lotus Archive</h1><div class="sub">a quiet pond of ideas · <span id="cnt"></span></div>
+<nav id="nav"></nav><div id="v"></div></div>
+<script>
+const CN={P:'Philosophy',Y:'Psychology',C:'World Cultures',M:'Mythologies',E:'Magic & Esoteric Traditions',S:'Society & Humanity',A:'Art & Literature',H:'History & Civilisations',N:'Science & The Natural World',R:'Religion & Spirituality'};
+const MC={Curious:'PYCMESAHNR',Contemplative:'PRAM',Adventurous:'HCMN',Melancholic:'APRM',Creative:'AMEC',Mystical:'EMR',Analytical:'YNPS',"Comfort-seeking":'CAMN',Challenged:'PSY'};
+const MT={Curious:'Open and wandering.',Contemplative:'A slow subject for a quiet page.',Adventurous:'Something far from home.',Melancholic:'Something with a soft, wistful edge.',Creative:'Something rich in image and story.',Mystical:'Symbol, ritual and old belief.',Analytical:'Something to turn over and examine.',"Comfort-seeking":'A gentle, warm subject.',Challenged:'A subject that pushes back.'};
+const R0=`The Ship of Theseus|P|Ancient Greece|Eu|A paradox of identity: when every part of a ship is gradually replaced, what keeps it the same ship? Trace its echoes in personal identity, memory and the passage of time.
+Mono no Aware|P|Japan|EAs|The Japanese sensitivity to the bittersweet beauty of impermanence, from cherry blossoms to fading light. Explore why transience can make things more precious, and how this shaped poetry and daily life.
+The Egyptian Book of the Dead|M|Ancient Egypt|NWAf|Funerary spells guiding the soul through judgement, where the heart is weighed against a feather. Examine how beliefs about death shaped Egyptian art, ritual and ordinary life.
+The Philosophy of Ubuntu|S|Southern Africa|ESAf|A person is a person through other people. Examine how Ubuntu frames identity as communal, and how it informs discussions of compassion, restorative justice and shared responsibility.
+The Lotus Across Traditions|E|Cross-cultural|Glo|Compare how Buddhist, Hindu, Egyptian and Chinese traditions read the lotus: purity, rebirth, creation, transformation. Look at the differences rather than assuming one shared meaning.
+Nāgārjuna and Emptiness|P|India|SAs|A second-century Buddhist philosopher argued that nothing exists independently, only in relation. Explore śūnyatā, the middle way and why it unsettles our sense of fixed things.
+Ibn Khaldun and Asabiyyah|S|Tunisia and the Maghreb|NWAf|In the 1300s Ibn Khaldun proposed that social cohesion rises and fades across generations, shaping dynasties. Consider how groups bind together and why civilisations lose their strength.
+The Dreaming (Tjukurrpa)|M|Aboriginal Australia|Oce|Aboriginal understandings of ancestral beings who shaped land, law and kinship, carried in story, song and painting. Explore how landscape can hold memory. Traditions differ greatly between nations.
+Sedna, Mother of the Sea|M|Inuit, Arctic|Ind|An Inuit story of a woman beneath the ocean who governs sea animals, and the shamans who journey to her. Consider the relationships between hunters, animals and respect.
+Baba Yaga|M|Slavic lands|EEu|A hut on chicken legs, a mortar and pestle, a witch who both helps and threatens. Explore why folklore keeps ambiguous figures, and what they say about wilderness and initiation.
+Tengri and the Eternal Sky|R|Central Asian steppe|CAs|Steppe peoples revered Tengri, the sky, as a supreme presence. Explore a belief shaped by open horizons, nomadic life and ideas of fate and rightful rule.
+Día de Muertos|C|Mexico|Lat|Families build altars with marigolds, food and photographs to welcome the returning dead. Explore how Indigenous and Catholic traditions blended into a festival that treats death as a relationship.
+Tri Hita Karana|C|Bali, Indonesia|SEA|A Balinese principle of harmony among people, nature and the divine, visible in temples, rice terraces and daily offerings. Explore how a philosophy can organise a landscape and a community.
+Polynesian Wayfinding|N|Pacific Islands|Oce|Navigators crossed vast ocean using stars, swells, birds and clouds, without instruments. Examine knowledge held in memory and practice, and what it means to read a world.
+Change Blindness|Y|Global|Glo|People often miss large changes in a scene when attention shifts. Explore what this reveals about perception, memory and how much of experience we construct ourselves.
+Memory as Reconstruction|Y|Global|Glo|Remembering is rebuilding, not replaying; each recall can alter the memory. Explore research on false memories and how it reshapes ideas of testimony, identity and nostalgia.
+Rumi and the Reed Flute|R|Persia|WAs|Rumi’s poetry opens with a reed lamenting its separation from the reed bed. Explore Sufi ideas of longing, love and return, and the art of whirling devotion.
+Griots: Keepers of West African Memory|S|West Africa|NWAf|Hereditary praise-singers and historians, griots preserve epics like Sundiata through music and speech. Consider oral memory, authority and the craft of remembering a people.
+Jabir ibn Hayyan and Early Alchemy|E|Abbasid Iraq|WAs|Texts attributed to Jabir blend experiment, symbolism and cosmology in medieval Islamic alchemy. Explore how chemistry and mysticism once shared a vocabulary, and what transmutation symbolised.
+Wuxing: The Five Phases|E|China|EAs|Wood, fire, earth, metal and water as cycles of change rather than fixed substances, used in medicine, divination and cosmology. A cultural and historical lens, not a scientific claim.
+Göbekli Tepe|H|Anatolia, Türkiye|WAs|Monumental carved pillars raised around 11,000 years ago, before settled farming. Explore what they suggest about ritual, community and the origins of civilisation.
+Great Zimbabwe|H|Zimbabwe|ESAf|Vast dry-stone enclosures at the heart of a trading society linked to the Indian Ocean. Explore how colonial-era claims denied African authorship, and what the site really tells.
+The Inca Quipu|H|The Andes|Lat|Knotted cords recorded census data, tribute and perhaps narrative. Explore how an empire stayed organised without a written script, and what remains undeciphered.
+Camus and the Myth of Sisyphus|P|Algeria and France|NWAf|Camus imagined Sisyphus content with his rock, treating absurdity as a place to live rather than escape. Explore revolt, meaning, and the difference between despair and acceptance.
+The Wood Wide Web|N|Global forests|Glo|Fungal networks link tree roots, exchanging nutrients and signals. Explore what is known, what is still debated, and how it challenges thinking about the individual organism.
+The Mind of an Octopus|N|Global oceans|Glo|Eight arms with neurons of their own, camouflage, tool use: a brain evolved separately from ours. Explore what intelligence and consciousness might mean in such an alien form.
+Madhubani Painting|A|Mithila, India|SAs|Women of Mithila have painted walls and paper with dense patterns of deities, fish, birds and lotus. Explore tradition, symbolism and how domestic art gained worldwide recognition.
+Hilma af Klint|A|Sweden|Eu|A pioneer of abstraction whose spiritually inspired paintings stayed hidden for decades. Explore forgotten artists, intention, and who gets remembered.
+Samsara and Rebirth|R|India and beyond|SAs|Hindu, Buddhist and Jain traditions understand existence as a cycle, with differing views of what continues and how liberation arises. Compare them rather than merging them.
+Samhain and the Celtic Year|M|Ireland and Scotland|Eu|An old Gaelic festival marking the turn to winter, when boundaries between worlds were said to thin. Explore what is known, what is later legend, and how it echoes today.
+The Sogdians of the Silk Road|H|Central Asia|CAs|Merchants from Samarkand and beyond carried goods, languages and religions across Eurasia. Explore how trade networks shaped culture, and why their story is often overlooked.
+Bayanihan|S|Philippines|SEA|Neighbours carrying a whole house on bamboo poles to a new site. Explore communal labour, reciprocity, and what mutual aid looks like in modern life.
+Pachamama|R|The Andes|Lat|In Andean communities Pachamama is earth and mother, honoured with offerings. Explore relationship with land as kinship, and how such ideas appear in modern law.
+Mandrake in European Folklore|E|Medieval Europe|Eu|A root shaped like a body, said to scream when pulled. Explore how plants gathered legends, from medicine to magic, as a window into fear and fascination. Folklore, not fact.`;
+const T=R0.split('\n').map((s,i)=>{const a=s.split('|');return{id:i,t:a[0],c:a[1],o:a[2],g:a[3],d:a[4]}});
+const CT=`Mochi|#e0a060|book|A sleepy orange reader who naps between chapters.
+Salem|#3a3640|hat|A black cat in a wizard hat, fond of riddles.
+Blossom|#f4efe6|flowers|A white cat wreathed in blooms, gentle and watchful.
+Quill|#9a9aa2|specs|A fluffy grey scholar with firm views on footnotes.
+Pip|#e6c9a0|brush|A calico with a tiny paintbrush and speckled whiskers.
+Pod|#d9884a|pod|A ginger kitten who lives inside a lotus pod.
+Luna|#5a5470|moon|A mysterious cat with a crescent moon pendant.
+Socrates|#c8b49a|laurel|A tiny philosopher who answers questions with questions.
+Matcha|#a9b98a|tea|A sage-coloured cat who thinks every idea deserves tea.
+Ember|#c26a4a|lantern|A lantern-bearer who explores old libraries at night.
+Wren|#d8c8e0|feather|A lavender cat with a quill, collector of small poems.
+Atlas|#8a6a4a|scroll|A brown traveller carrying maps of places not yet visited.`.split('\n').map(s=>{const a=s.split('|');return{n:a[0],f:a[1],a:a[2],p:a[3]}});
+const AC={book:'<rect x="34" y="76" width="32" height="16" rx="2" fill="#6b8a6a"/><path d="M50 76v16" stroke="#f3ead8"/>',hat:'<path d="M31 32L50 0L69 32Z" fill="#5a4a7a"/><ellipse cx="50" cy="32" rx="23" ry="4" fill="#4a3a6a"/>',flowers:'<g fill="#e8a6b8"><circle cx="30" cy="32" r="5"/><circle cx="70" cy="30" r="5"/><circle cx="50" cy="26" r="5"/></g><g fill="#f0d070"><circle cx="30" cy="32" r="2"/><circle cx="70" cy="30" r="2"/><circle cx="50" cy="26" r="2"/></g>',specs:'<g fill="none" stroke="#6b4a30" stroke-width="1.6"><circle cx="41" cy="50" r="7"/><circle cx="59" cy="50" r="7"/><path d="M48 50h4"/></g>',brush:'<path d="M70 94L88 64" stroke="#8a6a3a" stroke-width="3"/><path d="M88 64l3-6" stroke="#c98ea0" stroke-width="4"/>',pod:'<ellipse cx="50" cy="94" rx="32" ry="12" fill="#8a8a4a"/><g fill="#4a4a2a"><circle cx="38" cy="92" r="2"/><circle cx="50" cy="95" r="2"/><circle cx="62" cy="92" r="2"/></g>',moon:'<path d="M40 70Q50 82 60 70" stroke="#d8c070" fill="none"/><path d="M52 76a7 7 0 1 0 0 12a5 5 0 1 1 0-12z" fill="#f0d98a"/>',laurel:'<path d="M30 36Q50 20 70 36" stroke="#6b8a4a" stroke-width="3" fill="none"/>',tea:'<rect x="62" y="78" width="16" height="13" rx="3" fill="#f3ead8"/><path d="M66 74q3-4 0-8" stroke="#aaa" fill="none"/>',lantern:'<rect x="66" y="72" width="12" height="16" rx="3" fill="#f0c060"/><path d="M72 66v6" stroke="#6b4a30"/>',feather:'<path d="M68 38Q86 22 90 6Q70 14 64 36Z" fill="#9a7ac0"/>',scroll:'<rect x="26" y="78" width="48" height="11" rx="5" fill="#f3ead8" stroke="#a58a60"/>'};
+function catSVG(c,w){const e=c.a=='book'?.8:3;return `<svg viewBox="0 0 100 100" width="${w||110}"><ellipse cx="50" cy="82" rx="23" ry="16" fill="${c.f}"/><polygon points="28,36 31,10 46,28" fill="${c.f}"/><polygon points="72,36 69,10 54,28" fill="${c.f}"/><circle cx="50" cy="50" r="24" fill="${c.f}"/><g fill="#3a2e28"><ellipse cx="41" cy="50" rx="2.4" ry="${e}"/><ellipse cx="59" cy="50" rx="2.4" ry="${e}"/></g><polygon points="47,58 53,58 50,62" fill="#d98a8a"/><path d="M50 62q-4 4-8 2M50 62q4 4 8 2M30 58l-10-2M30 62l-10 3M70 58l10-2M70 62l10 3" stroke="#6b5a50" fill="none" stroke-width=".8"/>${AC[c.a]}</svg>`}
+const PA=[['Antique Key on Moss','A mysterious old key resting on a cushion of moss.',['#6b8a5a','#8a6a3a','#cfd8b8'],'Gentle','<rect width="120" height="90" fill="#cfd8b8"/><ellipse cx="60" cy="68" rx="52" ry="16" fill="#6b8a5a"/><circle cx="38" cy="50" r="10" fill="none" stroke="#8a6a3a" stroke-width="4"/><path d="M48 50h40M78 50v8M70 50v6" stroke="#8a6a3a" stroke-width="4"/>'],
+['Cottage and Giant Mushrooms','A tiny cottage surrounded by oversized mushrooms.',['#c9a77a','#8a5a4a','#d98a9a'],'Moderate','<rect width="120" height="90" fill="#e8e0c8"/><rect x="40" y="46" width="40" height="30" fill="#c9a77a"/><path d="M34 48L60 26L86 48Z" fill="#8a5a4a"/><rect x="55" y="58" width="10" height="18" fill="#6b4a30"/><g fill="#d98a9a"><ellipse cx="18" cy="62" rx="16" ry="10"/><ellipse cx="104" cy="58" rx="14" ry="9"/></g><path d="M18 62v16M104 58v20" stroke="#f3ead8" stroke-width="5"/>'],
+['The Sunlit Library','An old library with a sunbeam through tall windows.',['#8a6a4a','#f0d890','#4a3a30'],'Challenging','<rect width="120" height="90" fill="#d8c8a8"/><path d="M45 10L95 80H55Z" fill="#f6e6a0" opacity=".7"/><rect x="38" y="6" width="14" height="30" fill="#8aa0b0"/><g fill="#8a6a4a"><rect x="4" y="14" width="26" height="70"/><rect x="92" y="14" width="26" height="70"/></g><g fill="#c98ea0"><rect x="8" y="22" width="5" height="14"/><rect x="100" y="40" width="5" height="14"/></g>'],
+['Frog Under the Moon','A frog sitting on a lotus leaf beneath the moon.',['#3a4a5a','#7aa05c','#f0e6b0'],'Gentle','<rect width="120" height="90" fill="#3a4a5a"/><circle cx="84" cy="22" r="12" fill="#f0e6b0"/><rect y="62" width="120" height="28" fill="#2a3a48"/><ellipse cx="50" cy="66" rx="30" ry="8" fill="#5f8a5a"/><ellipse cx="50" cy="56" rx="10" ry="8" fill="#7aa05c"/><circle cx="45" cy="48" r="3" fill="#7aa05c"/><circle cx="55" cy="48" r="3" fill="#7aa05c"/>'],
+['Forgotten Temple','A temple surrounded by vines.',['#b8c8a8','#8a8a7a','#4a6a3a'],'Challenging','<rect width="120" height="90" fill="#b8c8a8"/><rect x="30" y="40" width="60" height="40" fill="#8a8a7a"/><path d="M24 42L60 14L96 42Z" fill="#6a6a5a"/><rect x="52" y="56" width="16" height="24" fill="#3a3a30"/><path d="M34 40q-6 20 2 38M88 40q8 20-2 38M60 18q8 10-2 20" stroke="#4a6a3a" stroke-width="4" fill="none"/>'],
+['Galaxy in a Bottle','A glass bottle holding a miniature galaxy.',['#3a3060','#b9a7cf','#f0d0e0'],'Moderate','<rect width="120" height="90" fill="#e8e0d8"/><path d="M52 8h16v14q18 8 18 30v26q0 8-8 8H42q-8 0-8-8V52q0-22 18-30Z" fill="#3a3060"/><g fill="#f0d0e0"><circle cx="52" cy="50" r="1.5"/><circle cx="68" cy="42" r="1.5"/><circle cx="60" cy="64" r="2"/></g><ellipse cx="60" cy="54" rx="16" ry="6" fill="none" stroke="#b9a7cf"/><rect x="54" y="4" width="12" height="6" fill="#a58a60"/>'],
+['Teacup of Flowers','An antique teacup with flowers growing inside.',['#efe6e0','#c98ea0','#8aa58a'],'Gentle','<rect width="120" height="90" fill="#efe6e0"/><path d="M28 50h64q0 26-32 26T28 50Z" fill="#f8f3ea" stroke="#a58a60"/><ellipse cx="60" cy="80" rx="32" ry="4" fill="#d8c8b8"/><path d="M50 50q-6-20-12-22M62 50V24M72 50q6-16 14-18" stroke="#8aa58a" stroke-width="2" fill="none"/><g fill="#c98ea0"><circle cx="38" cy="28" r="6"/><circle cx="62" cy="22" r="6"/><circle cx="86" cy="32" r="6"/></g>'],
+['Fox Under a Flowering Tree','A fox asleep beneath blossoms.',['#d98a4a','#e8b8c8','#8a6a4a'],'Moderate','<rect width="120" height="90" fill="#d8e0c8"/><rect x="74" y="30" width="8" height="50" fill="#8a6a4a"/><g fill="#e8b8c8"><circle cx="78" cy="26" r="20"/><circle cx="58" cy="34" r="12"/><circle cx="98" cy="34" r="12"/></g><ellipse cx="42" cy="72" rx="20" ry="9" fill="#d98a4a"/><circle cx="26" cy="68" r="7" fill="#d98a4a"/><path d="M60 70q14-8 4 6" fill="#f3ead8"/>']];
+const RM={Glo:1};
+const $=s=>document.querySelector(s);
+const K='lotusArchive1';
+let S={done:[],saved:[],cats:[],rec:[],p:{},cur:null,mood:'',cat:'',tab:'g',seen:0};
+try{Object.assign(S,JSON.parse(localStorage.getItem(K)||'{}'))}catch(e){}
+let shown=S.done.length,ov='';
+function sv(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){toast('Storage is full; a photo may not be kept')}}
+function toast(m){const d=document.createElement('div');d.className='t';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2400)}
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function pick(mode){
+ let pool=T.filter(x=>!S.done.includes(x.id));if(!pool.length)pool=T.slice();
+ const fr=pool.filter(x=>!S.rec.includes(x.id)&&x.id!==S.cur);if(fr.length)pool=fr;
+ const f=(fn)=>{const p=pool.filter(fn);if(p.length)pool=p};
+ if(mode=='next'){if(S.cat)f(x=>x.c==S.cat);if(S.mood)f(x=>MC[S.mood].includes(x.c))}
+ if(mode=='new'){const n={};S.done.forEach(i=>n[T[i].g]=(n[T[i].g]||0)+1);const m=Math.min(...pool.map(x=>n[x.g]||0));f(x=>(n[x.g]||0)==m&&x.g!='Glo')}
+ const t=pool[Math.floor(Math.random()*pool.length)];
+ S.cur=t.id;S.rec=[...S.rec,t.id].slice(-10);sv();r()}
+function done(){
+ if(S.cur==null)return;const t=T[S.cur];
+ S.done.push(S.cur);
+ let un=CT.map((c,i)=>i).filter(i=>!S.cats.some(k=>k.i==i));if(!un.length)un=CT.map((c,i)=>i);
+ const ci=un[Math.floor(Math.random()*un.length)];S.cats.push({i:ci,t:Date.now()});
+ const n=S.done.length;S.cur=null;sv();
+ const c=CT[ci];let ex='';
+ if(n%2==0)ex+='<p>🎨 A painting challenge has been unlocked.</p>';
+ if(n%5==0)ex+='<p>🪷 A lotus is blooming in your pond.</p>';
+ ov=`<div id="ov"><div class="card">${catSVG(c,150)}<h2>${c.n} has joined you</h2><p>${c.p}</p>${ex}<button class="pr" onclick="closeOv(${n%5==0})">Continue</button></div></div>`;
+ r()}
+function closeOv(b){ov='';pick('next');if(b)petals(14)}
+function petals(n){for(let i=0;i<n;i++){const p=document.createElement('span');p.className='fp';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*3+'s';$('#fx').appendChild(p);setTimeout(()=>p.remove(),13000)}}
+function pond(){
+ const n=S.done.length;let s='<svg viewBox="0 0 440 170"><defs><linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f9a86"/><stop offset="1" stop-color="#3f5e4d"/></linearGradient></defs><rect width="440" height="170" fill="url(#w)"/><ellipse class="rp" cx="120" cy="140" rx="70" ry="12"/><ellipse class="rp" cx="320" cy="150" rx="60" ry="10" style="animation-delay:3s"/>';
+ const pd='M0 0C-10 -8 -9 -26 0 -34C9 -26 10 -8 0 0Z';
+ for(let i=0;i<5;i++){const x=45+i*70;s+=`<path d="M${x} 150Q${x+8} 125 ${x} 106" stroke="#4f7a4a" stroke-width="3" fill="none"/><ellipse cx="${x}" cy="150" rx="26" ry="7" fill="#5f8a5a"/><g transform="translate(${x},106)">`;
+  for(const k of[-1.5,-.5,.5,1.5])s+=`<path class="pt" data-i="${i}" data-k="${k}" d="${pd}" fill="#b87a90"/>`;
+  s+='<circle cx="0" cy="-6" r="4" fill="#d8b050"/>';
+  for(const k of[-2,-1,0,1,2])s+=`<path class="pt" data-i="${i}" data-k="${k}" d="${pd}" fill="#e3a9b9" stroke="#c98ea0" stroke-width=".6"/>`;
+  s+='</g>'}
+ s+='<ellipse cx="408" cy="152" rx="24" ry="7" fill="#5f8a5a"/><ellipse cx="408" cy="144" rx="9" ry="7" fill="#7aa05c"/><circle cx="403" cy="137" r="3" fill="#7aa05c"/><circle cx="413" cy="137" r="3" fill="#7aa05c"/>';
+ for(let j=0;j<Math.min(5,Math.floor(n/5));j++)s+=`<path class="df" transform="translate(${70+j*75},${28+(j%2)*22})" d="M0 0l9-3M0 0l9 3M0 0l-9-3M0 0l-9 3M0 0h-10" stroke="#e0d0f0" stroke-width="1.6"/>`;
+ return s+'</svg>'}
+function setP(t){document.querySelectorAll('.pt').forEach(e=>{const p=Math.max(0,Math.min(5,t-5*e.dataset.i))/5;e.style.transform=`rotate(${e.dataset.k*(7+p*30)}deg) scale(${.7+.35*p})`})}
+function gard(){
+ if(S.cur==null){pick('next');return}
+ const t=T[S.cur],n=S.done.length,sv_=S.saved.includes(t.id);
+ const reg=new Set(S.done.map(i=>T[i].g)).size,cats=new Set(S.done.map(i=>T[i].c)).size;
+ const pc=Object.values(S.p).filter(x=>x.img).length;
+ $('#v').innerHTML=`<div class="card" id="pond">${pond()}</div>
+ <div class="card"><small>${CN[t.c]} · ${t.o}</small><h2>${t.t}</h2><p>${t.d}</p>${S.mood?`<small><i>${S.mood}: ${MT[S.mood]}</i></small>`:''}
+ <div class="row"><button class="pr" onclick="done()">Done Journaling</button><button onclick="sav()">${sv_?'Saved ✓':'Save for Later'}</button><button onclick="pick('next')">Skip This Topic</button></div></div>
+ <div class="card"><div class="row" style="margin:0"><button onclick="pick('surprise')">Surprise Me</button><button onclick="pick('next')">Another Topic</button><button onclick="pick('new')">Explore Somewhere New</button></div>
+ <div class="row"><select onchange="S.cat=this.value;pick('next')"><option value="">Explore a Category</option>${Object.entries(CN).map(([k,v])=>`<option value="${k}" ${S.cat==k?'selected':''}>${v}</option>`).join('')}</select>
+ <select onchange="S.mood=this.value;pick('next')"><option value="">Change My Mood</option>${Object.keys(MC).map(m=>`<option ${S.mood==m?'selected':''}>${m}</option>`).join('')}</select></div>
+ <small>Skipping is always free. Nothing here is a task.</small></div>
+ <div class="card"><small>${n} topics explored · ${n%5} of 5 toward the next bloom · ${S.cats.length} cats · ${Math.min(8,Math.floor(n/2))} paintings unlocked · ${pc} painted · ${S.saved.length} saved · ${cats} of 10 categories · ${reg} regions visited</small></div>`;
+ setP(shown);setTimeout(()=>{setP(n);shown=n},120)}
+function sav(){const i=S.cur;S.saved=S.saved.includes(i)?S.saved.filter(x=>x!=i):[...S.saved,i];sv();toast(S.saved.includes(i)?'Saved for later':'Removed');r()}
+function cats(){$('#v').innerHTML=`<div class="grid">${CT.map((c,i)=>{const k=S.cats.find(x=>x.i==i);return k?`<div class="card">${catSVG(c)}<h3>${c.n}</h3><small>${c.p}<br>Joined ${new Date(k.t).toLocaleDateString()}</small></div>`:'<div class="card"><div style="font-size:60px;opacity:.3">?</div><small>Not yet met</small></div>'}).join('')}</div>`}
+function paint(){
+ const u=Math.min(8,Math.floor(S.done.length/2));let h='';
+ for(let i=0;i<u;i++){const p=PA[i],d=S.p[i]||{};
+  h+=`<div class="card"><svg viewBox="0 0 120 90" style="width:100%;border-radius:12px">${p[4]}</svg><h3>${p[0]}</h3><p class="mu">${p[1]}</p><div>${p[2].map(c=>`<span class="sw" style="background:${c}"></span>`).join('')} <small>${p[3]}</small></div>
+  ${d.img?`<img class="ph" src="${d.img}" alt="Your painting"><textarea placeholder="In your own words: what did you paint, and what does it mean to you?" onchange="note(${i},this.value)">${esc(d.note)}</textarea><div class="row"><button class="pr" onclick="reflect(${i})">Reflect on my painting</button><label><button onclick="this.nextElementSibling.click()">Replace photo</button><input type="file" accept="image/*" hidden onchange="up(${i},this.files[0])"></label></div>${d.an||''}`:`<div class="row"><button class="pr" onclick="this.nextElementSibling.click()">I’ve Painted This</button><input type="file" accept="image/*" hidden onchange="up(${i},this.files[0])"></div>`}</div>`}
+ $('#v').innerHTML=h||'<div class="card">Your first painting challenge unlocks after two completed topics.</div>'}
+function note(i,v){S.p[i].note=v;sv()}
+function up(i,f){if(!f)return;const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const sc=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*sc;c.height=im.height*sc;c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.p[i]=Object.assign(S.p[i]||{},{img:c.toDataURL('image/jpeg',.7),an:''});sv();r()};im.src=fr.result};fr.readAsDataURL(f)}
+function reflect(i){const p=S.p[i],im=new Image();im.onload=()=>{
+ const c=document.createElement('canvas');c.width=c.height=48;const x=c.getContext('2d');x.drawImage(im,0,0,48,48);const d=x.getImageData(0,0,48,48).data;
+ let L=0,Sa=0,w=0,co=0,ce=0,ed=0,lf=0,rt=0,q={};
+ for(let k=0;k<2304;k++){const R=d[k*4],G=d[k*4+1],B=d[k*4+2],mx=Math.max(R,G,B),mn=Math.min(R,G,B),l=(mx+mn)/510,px=k%48,py=(k/48)|0;
+  L+=l;Sa+=(mx-mn)/(mx||1);if(R>B+12)w++;else if(B>R+12)co++;
+  if(px>=12&&px<36&&py>=12&&py<36)ce+=l;else ed+=l;if(px<24)lf+=l;else rt+=l;
+  const key=((R>>6)<<4)|((G>>6)<<2)|(B>>6);q[key]=(q[key]||0)+1}
+ L/=2304;Sa/=2304;ce/=576;ed/=1728;
+ const top=Object.entries(q).sort((a,b)=>b[1]-a[1]).slice(0,4).map(e=>{const k=+e[0];return`rgb(${(k>>4&3)*85+42},${(k>>2&3)*85+42},${(k&3)*85+42})`});
+ const pc=v=>Math.round(v/23.04);
+ const obs=[`About ${pc(w)}% of the image leans warm and ${pc(co)}% cool.`,`Overall it reads as ${L>.62?'light':L<.38?'dark':'mid-toned'}, with ${Sa>.45?'fairly saturated':Sa<.2?'muted':'moderately saturated'} colour.`,ce>ed+.06?'The centre is lighter than the edges.':ce<ed-.06?'The centre is darker than the edges.':'Light is spread fairly evenly from centre to edges.',Math.abs(lf-rt)/1152>.08?`The ${lf>rt?'left':'right'} half is lighter.`:'Left and right halves are balanced in brightness.'];
+ const int=[w>co?'You may be drawn to warm, enclosing palettes.':'You may favour cool, calm palettes.',Sa<.2?'Muted colour could suggest a taste for subtlety and quiet atmosphere.':'Strong colour could suggest a taste for vividness.',ce>ed+.06?'A bright centre may point toward a clear focal subject.':'Without a bright focal centre, the eye may wander, which can feel spacious or unresolved.'];
+ const qs=['Why did you choose these colours rather than the reference palette?','Which part did you enjoy painting most, and which did you avoid?','Do any shapes or colours recur in your other work or journaling?','Does the painting match what you meant, or did it surprise you?'];
+ p.an=`<div class="card" style="margin:10px 0 0"><h3>Observed (from the photo’s pixels)</h3><div>${top.map(c=>`<span class="sw" style="background:${c}"></span>`).join('')}</div><ul>${obs.map(o=>`<li>${o}</li>`).join('')}</ul>
+ <h3>Possible interpretation</h3><p class="mu">Speculative, drawn from colour and layout only${p.note?` and from your own words (“${esc(p.note.slice(0,120))}”)`:''}. You are the authority on what it means.</p><ul>${int.map(o=>`<li>${o}</li>`).join('')}</ul>
+ <h3>Questions to sit with</h3><ul>${qs.map(o=>`<li>${o}</li>`).join('')}</ul><small>This is a playful reflection on creative choices, not a psychological assessment.</small></div>`;sv();r()};im.src=p.img}
+function saved(){$('#v').innerHTML=S.saved.length?S.saved.map(i=>{const t=T[i];return`<div class="card"><small>${CN[t.c]} · ${t.o}</small><h3>${t.t}</h3><p>${t.d}</p><div class="row"><button class="pr" onclick="S.cur=${i};S.tab='g';sv();r()">Journal this</button><button onclick="S.saved=S.saved.filter(x=>x!=${i});sv();r()">Remove</button></div></div>`}).join(''):'<div class="card">Nothing saved yet. Tap “Save for Later” on anything that catches your eye.</div>'}
+function r(){
+ $('#cnt').textContent=S.done.length+' explored';
+ $('#nav').innerHTML=[['g','Pond'],['c','Cats'],['p','Paintings'],['s','Saved']].map(a=>`<button class="${S.tab==a[0]?'on':''}" onclick="S.tab='${a[0]}';sv();r()">${a[1]}</button>`).join('');
+ ({g:gard,c:cats,p:paint,s:saved})[S.tab]();
+ const o=$('#ovh');if(o)o.remove();if(ov){const d=document.createElement('div');d.id='ovh';d.innerHTML=ov;document.body.appendChild(d)}}
+for(let i=0;i<14;i++){const p=document.createElement('span');p.className='pa';p.style.left=Math.random()*100+'%';p.style.animationDelay=-Math.random()*16+'s';p.style.animationDuration=14+Math.random()*10+'s';$('#fx').appendChild(p)}
+setInterval(()=>petals(1),15000);
+r();
+</script></body></html>
